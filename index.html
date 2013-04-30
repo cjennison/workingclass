@@ -45,7 +45,7 @@
 				}
 				
 				//Shower
-				if(hr > 9 && tf == "am" && hr < 12){
+				if(hr >= 9 && tf == "am" && hr < 12){
 					console.log("SHOWER")
 					
 					if(cur_img == "shower"){ return; }
@@ -54,11 +54,11 @@
 				}
 				
 				//Bread
-				if(hr > 1 && tf == "pm" && hr < 12){
+				if(hr >= 1 && tf == "pm" && hr < 12){
 					console.log("BREAD")
-					if(cur_img == "bread"){ return; }
-					$("#gif").attr("src", "gifs/bread.gif");
-					cur_img = "bread";
+					if(cur_img == "newspaper"){ return; }
+					$("#gif").attr("src", "gifs/newspaper.gif");
+					cur_img = "newspaper";
 
 				}
 				
@@ -66,8 +66,8 @@
 		</script>
 	</head>	
 	
-	<body onload="init()">
-		<img id="gif" src="gifs/newspaper.gif" width="80%">
+	<body onload="">
+		<img id="gif" src="null" width="80%">
 		
 					<span id="time"> </span>
 
