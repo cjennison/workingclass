@@ -1,0 +1,54 @@
+@font-face{
+	font-family:Digital;
+	src: url('digitalism.ttf');
+}
+
+
+body{
+	background:black;
+	overflow:hidden;
+}
+
+#title{
+	font-family:Digital;
+	color:red;
+	font-size:3.5em;
+	width:100%;
+	text-align: center;
+	position:absolute;
+	top:300px;
+	opacity: .5;
+}
+
+#clock{
+	width:900px;
+	position:absolute;
+	left:50%;
+	margin-left:-450px;
+	top:44%;
+	
+}
+
+#qr_code{
+	position:absolute;
+	width:100px;
+	height:100px;
+	background:grey;
+}
+
+#time{
+	font-family:Digital;
+	color:white;
+	font-size: 3em;
+	position: absolute;
+	width:100%;
+	text-align: center;
+	bottom:20px;
+}
+
+img{
+	position:absolute;
+	top:-30px;
+	left:50%;
+	margin-left:-40%;
+}

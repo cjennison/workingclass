@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>The Working Class</title>
+		<link rel="stylesheet" href="css/main.css">
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"> </script>
+		<script>
+			var d = new Date();
+			var cur_img = "null"
+			function init(){
+				update();
+				setInterval(function(){
+					update();
+				},100)
+			}
+			
+			function update(){
+				d = new Date();
+				var hr = d.getHours();
+				var min = d.getMinutes();
+				var sec = d.getSeconds();
+				var tf = "am";
+				
+				if(hr > 12){
+					hr = hr - 12;
+					tf = "pm";
+				}
+				
+				if(min < 10){
+					min = "0" + min;
+				}
+				
+				if(sec < 10){
+					sec = "0" + sec;
+				}
+				
+				$("#time").html(hr + ":" + min + ":" + sec + " " + tf)
+				
+				//Newspaper
+				if(hr > 1 && tf == "am" && hr < 9){
+					console.log("NEWS")
+					if(cur_img == "newspaper"){ return; }
+					$("#gif").attr("src", "gifs/newspaper.gif");
+					cur_img = "newspaper";
+				}
+				
+				//Shower
+				if(hr > 9 && tf == "am" && hr < 12){
+					console.log("SHOWER")
+					
+					if(cur_img == "shower"){ return; }
+					$("#gif").attr("src", "gifs/shower.gif");
+					cur_img = "shower";
+				}
+				
+				//Bread
+				if(hr > 1 && tf == "pm" && hr < 12){
+					console.log("BREAD")
+					if(cur_img == "bread"){ return; }
+					$("#gif").attr("src", "gifs/bread.gif");
+					cur_img = "bread";
+
+				}
+				
+			}
+		</script>
+	</head>	
+	
+	<body onload="init()">
+		<img id="gif" src="gifs/newspaper.gif" width="80%">
+		
+					<span id="time"> </span>
+
+		<div id="clock">
+		</div>
+	</body>
+</html>
