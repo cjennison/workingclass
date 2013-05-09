@@ -36,31 +36,63 @@
 				
 				$("#time").html(hr + ":" + min + ":" + sec + " " + tf)
 				
-				//Newspaper
-				if(hr > 1 && tf == "am" && hr < 9){
-					console.log("NEWS")
-					if(cur_img == "newspaper"){ return; }
-					$("#gif").attr("src", "gifs/newspaper.gif");
-					cur_img = "newspaper";
+				//SLEEP
+				if(hr > 1 && tf == "am" && hr < 3){
+					console.log("SLEEP")
+					if(cur_img == "sleep"){ return; }
+					$("#gif").attr("src", "gifs/sleep.gif");
+					cur_img = "slep";
 				}
 				
-				//Shower
-				if(hr >= 9 && tf == "am" && hr < 12){
-					console.log("SHOWER")
+				//AT COMPUTER
+				if(hr >= 3 && tf == "am" && hr < 4){
+					console.log("COMPUTER")
 					
-					if(cur_img == "shower"){ return; }
-					$("#gif").attr("src", "gifs/shower.gif");
-					cur_img = "shower";
+					if(cur_img == "computer"){ return; }
+					$("#gif").attr("src", "gifs/computer.gif");
+					cur_img = "computer";
 				}
 				
-				//Bread
-				if(hr >= 1 && tf == "pm" && hr < 12){
-					console.log("BREAD")
+				//SMOKING
+				if(hr >= 4 && tf == "pm" && hr < 5){
+					console.log("smoking")
+					if(cur_img == "smoking"){ return; }
+					$("#gif").attr("src", "gifs/smoking.gif");
+					cur_img = "smoking";
+				}
+				
+				//SHOWERING
+				if(hr >= 5 && tf == "pm" && hr < 7){
+					console.log("showering")
+					if(cur_img == "showering"){ return; }
+					$("#gif").attr("src", "gifs/showering.gif");
+					cur_img = "showering";
+				}
+				
+				//BREAD
+				if(hr >= 7 && tf == "pm" && hr < 8){
+					console.log("bread")
+					if(cur_img == "bread"){ return; }
+					$("#gif").attr("src", "gifs/bread.gif");
+					cur_img = "bread";
+				}
+				
+				//NEWSPAPER
+				if(hr >= 8 && tf == "pm" && hr < 9){
+					console.log("newspaper")
 					if(cur_img == "newspaper"){ return; }
 					$("#gif").attr("src", "gifs/newspaper.gif");
 					cur_img = "newspaper";
-
 				}
+				
+				//DRIVING
+				if(hr >= 9 && tf == "pm" && hr < 10){
+					console.log("driving")
+					if(cur_img == "driving"){ return; }
+					$("#gif").attr("src", "gifs/driving.gif");
+					cur_img = "driving";
+				}
+				
 				
 			}
 		</script>
