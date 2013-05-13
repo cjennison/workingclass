@@ -10,7 +10,8 @@
 1pm - 3: At Meeting
 3pm - 5: Smoking
 5pm - 5:45: Driving
-5:45 - 7: Eating with bills
+5:45 - 6:30: Bills
+6:30 - 7: Eating
 7pm - 8: Smoking
 8pm - 9: At computer, crying
 9pm - 10: In bed, awake
