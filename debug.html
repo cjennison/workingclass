@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>The Working Class - DEBUG</title>
+		<link rel="stylesheet" href="css/main.css">
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"> </script>
+		<script>
+			var d = new Date();
+			var hr = 0;
+			var cur_img = "null"
+			function init(){
+				
+				$("#submitbtn").click(function(){
+					var val = $("#hour-input").val();
+					console.log(val);
+					hr = parseInt(val);
+				})
+				
+				$("#helpbtn").click(function(){
+					$("#helpbox").css("opacity", .6);
+					setTimeout(function(){
+						$("#helpbox").css("opacity", 0);
+					},5000)
+				})
+				
+				setInterval(function(){
+					hr++;
+				},20000)
+				
+				
+				update();
+				setInterval(function(){
+					update();
+				},100)
+			}
+			
+			function update(){
+				d = new Date();
+				
+				var min = d.getMinutes();
+				var sec = d.getSeconds();
+				var tf = "am";
+				var hrtxt;
+				
+				if(hr > 12){
+					hr = hr;
+					hrtxt = hr - 12;
+					tf = "pm";
+				} else {
+					hrtxt = hr;
+				}
+				
+				if(min < 10){
+					min = "0" + min;
+				}
+				
+				if(sec < 10){
+					sec = "0" + sec;
+				}
+				
+				$("#time").html(hrtxt + ":" + min + ":" + sec + " " + tf)
+				
+				//SLEEP
+				if(hr >= 0 &&  hr < 3){
+					if(cur_img == "sleep"){ return; }
+					$("#gif").attr("src", "gifs/sleep.gif");
+					cur_img = "sleep";
+				}
+				
+				//AT COMPUTER
+				if(hr >= 3 && hr < 4){
+					
+					if(cur_img == "computer"){ return; }
+					$("#gif").attr("src", "gifs/computer_night.gif");
+					cur_img = "computer";
+				}
+				
+				//SMOKING
+				if(hr >= 4  && hr < 5){
+					if(cur_img == "smoking"){ return; }
+					$("#gif").attr("src", "gifs/smoke.gif");
+					cur_img = "smoking";
+				}
+				
+				//SHOWERING
+				if(hr >= 5 && hr < 7){
+					if(cur_img == "showering"){ return; }
+					$("#gif").attr("src", "gifs/shower.gif");
+					cur_img = "showering";
+				}
+				
+				//BREAD
+				if(hr >= 7 && hr < 8){
+					if(cur_img == "bread"){ return; }
+					$("#gif").attr("src", "gifs/bread.gif");
+					cur_img = "bread";
+				}
+				
+				//NEWSPAPER
+				if(hr >= 8 && hr < 9){
+					if(cur_img == "newspaper"){ return; }
+					$("#gif").attr("src", "gifs/newspaper.gif");
+					cur_img = "newspaper";
+				}
+				
+				//DESK
+				if(hr >= 9 && hr < 11){
+					if(cur_img == "desk"){ return; }
+					$("#gif").attr("src", "gifs/desk.gif");
+					cur_img = "desk";
+				}
+				
+				//MEETING
+				if(hr >= 11 && hr < 12){
+					if(cur_img == "meeting"){ return; }
+					$("#gif").attr("src", "gifs/meeting.gif");
+					cur_img = "meeting";
+				}
+				
+				//COFFEE
+				if(hr >= 12 && hr < 13){
+					if(cur_img == "coffee"){ return; }
+					$("#gif").attr("src", "gifs/coffee.gif");
+					cur_img = "coffee";
+				}
+				
+				//DESK
+				if(hr >= 13 && hr < 15){
+					if(cur_img == "desk"){ return; }
+					$("#gif").attr("src", "gifs/desk.gif");
+					cur_img = "desk";
+				}
+				
+				//DESK
+				if(hr >= 15 && hr < 16){
+					if(cur_img == "smoke_work"){ return; }
+					$("#gif").attr("src", "gifs/smoke_work.gif");
+					cur_img = "smoke_work";
+				}
+				
+				//comp cry
+				if(hr >= 16 && hr < 17){
+					if(cur_img == "computer_cry"){ return; }
+					$("#gif").attr("src", "gifs/computer_cry.gif");
+					cur_img = "computer_cry";
+				}
+				
+				//smoke afterwork
+				if(hr >= 17 && hr < 18){
+					if(cur_img == "smoke_afterwork"){ return; }
+					$("#gif").attr("src", "gifs/smoke_afterwork.gif");
+					cur_img = "smoke_afterwork";
+				}
+				
+				//DESK
+				if(hr >= 18 && hr < 19){
+					if(cur_img == "drinking"){ return; }
+					$("#gif").attr("src", "gifs/drinking.gif");
+					cur_img = "drinking";
+				}
+				
+				//DESK
+				if(hr >= 19 && hr < 22){
+					if(cur_img == "sleep_couch"){ return; }
+					$("#gif").attr("src", "gifs/sleep_couch.gif");
+					cur_img = "sleep_couch";
+				}
+				
+				//DESK
+				if(hr >= 22 && hr < 23){
+					if(cur_img == "drinking_with_pills"){ return; }
+					$("#gif").attr("src", "gifs/drinking_with_pills.gif");
+					cur_img = "drinking_with_pills";
+				}
+				if(hr >= 23 && hr < 24){
+					if(cur_img == "sadness"){ return; }
+					$("#gif").attr("src", "gifs/sadness.gif");
+					cur_img = "sadness";
+				}
+				
+				
+			}
+		</script>
+	</head>	
+	
+	<body onload="init()">
+		<div id="helpbtn"></div>
+
+		<img id="gif" src="null" width="80%">
+		<span id="time"> </span>
+		<div id="clock">
+		</div>
+		<div id="helpbox"><div id="instr">Each <b>hour</b> of <b>every</b> day, the recording will change. <br>The <b>mundane</b> will transition and the <b>action</b> will shift.<br> Check back again in another <b>hour</b>.</div></div>
+		<div id="debug-window"><span id="hour_label">HOUR:<br><input id="hour-input" type="number" value="12"><br><center><button id="submitbtn" value="SUBMIT">SUBMIT</button></center></span></div>
+	</body>
+</html>
